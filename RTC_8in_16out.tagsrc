@@ -1,0 +1,19 @@
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\main.c
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\IO.c
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\lcd.c
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\Tick.c
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\tips.c
+D:\Workspace\Clover_RelayGSM\new_\SOURCE C\DS1302.c
+D:\Workspace\Clover_RelayGSM\new_\button\button.c
+D:\Workspace\Clover_RelayGSM\new_\button\key.c
+D:\Workspace\Clover_RelayGSM\new_\serial_com\pic30_serial_com.c
+D:\Workspace\Clover_RelayGSM\new_\serial_com\serial_com_appl.c
+D:\Workspace\Clover_RelayGSM\new_\serial_com\serial_com_reaction\serial_com_reaction.c
+D:\Workspace\Clover_RelayGSM\new_\interfaces\interfaces.c
+D:\Workspace\Clover_RelayGSM\new_\INCLUDE\GenericTypeDefs.h
+D:\Workspace\Clover_RelayGSM\new_\INCLUDE\LCD.h
+D:\Workspace\Clover_RelayGSM\new_\INCLUDE\system.h
+D:\Workspace\Clover_RelayGSM\new_\INCLUDE\tips.h
+D:\Workspace\Clover_RelayGSM\new_\INCLUDE\DS1302.h
+D:\Workspace\Clover_RelayGSM\new_\button\button.h
+D:\Workspace\Clover_RelayGSM\new_\button\key.h
