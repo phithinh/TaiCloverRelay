@@ -3,7 +3,7 @@
 
 #include<p30f4011.h>
 
-#include"GenericTypeDefs.h"
+//#include"GenericTypeDefs.h"
 
 
 #define Fcy		14745600

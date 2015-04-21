@@ -11,6 +11,24 @@
 #define SERIAL_COM_MAX_NUM_RELAY 16
 #define SERIAL_COM_STARTED_IDX_RELAY 2
 
+unsigned short serial_com_relay_adapt [] = {Y1  ,
+											Y2  ,
+											Y3  ,
+											Y4  ,
+											Y5  ,
+											Y6  ,
+											Y7  ,
+											Y8  ,
+											Y9  ,
+											Y10 ,
+											Y11 ,
+											Y12 ,
+											Y13 ,
+											Y14 ,
+											Y15 ,
+											Y16 ,
+};
+
 void serial_com_send_ok_v(void)
 {
 	serial_com_sending_context_st.data_ub[0] = '<';
@@ -33,7 +51,9 @@ void serial_com_set_relay_state_v(void){
 	unsigned short t_requested_relay_uw = 0;
 	unsigned char t_index_ub;
 	for(t_index_ub = 0; t_index_ub<SERIAL_COM_MAX_NUM_RELAY;t_index_ub++){
-		t_requested_relay_uw |= (serial_com_receiving_context_st.data_ub[t_index_ub+SERIAL_COM_STARTED_IDX_RELAY] == '1')<<t_index_ub;
+		if (serial_com_receiving_context_st.data_ub[t_index_ub+SERIAL_COM_STARTED_IDX_RELAY] == '1'){
+			t_requested_relay_uw |= serial_com_relay_adapt[t_index_ub];
+		}
 		l_serial_com_requested_relay_uw = t_requested_relay_uw;
 		l_serial_com_requested_relay_flag_b = 1;
 	}
@@ -47,22 +67,22 @@ void serial_com_send_relay_state_v(void){
 	serial_com_sending_context_st.data_ub[5] = 'u';
 	serial_com_sending_context_st.data_ub[6] = 's';
 	serial_com_sending_context_st.data_ub[7] = ' ';
-	serial_com_sending_context_st.data_ub[8] = (relay_control_st.Relay_status_st.Relay_st.Num_1 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[9] = (relay_control_st.Relay_status_st.Relay_st.Num_2 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[10] = (relay_control_st.Relay_status_st.Relay_st.Num_3 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[11] = (relay_control_st.Relay_status_st.Relay_st.Num_4 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[12] = (relay_control_st.Relay_status_st.Relay_st.Num_5 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[13] = (relay_control_st.Relay_status_st.Relay_st.Num_6 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[14] = (relay_control_st.Relay_status_st.Relay_st.Num_7 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[15] = (relay_control_st.Relay_status_st.Relay_st.Num_8 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[16] = (relay_control_st.Relay_status_st.Relay_st.Num_9 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[17] = (relay_control_st.Relay_status_st.Relay_st.Num_10 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[18] = (relay_control_st.Relay_status_st.Relay_st.Num_11 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[19] = (relay_control_st.Relay_status_st.Relay_st.Num_12 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[20] = (relay_control_st.Relay_status_st.Relay_st.Num_13 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[21] = (relay_control_st.Relay_status_st.Relay_st.Num_14 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[22] = (relay_control_st.Relay_status_st.Relay_st.Num_15 == 1)?'1':'0';
-	serial_com_sending_context_st.data_ub[23] = (relay_control_st.Relay_status_st.Relay_st.Num_16 == 1)?'1':'0';
+	serial_com_sending_context_st.data_ub[8] = 	((relay_control_st.Relay_status_st.Val_uw & Y1)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[9] = 	((relay_control_st.Relay_status_st.Val_uw & Y2)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[10] = ((relay_control_st.Relay_status_st.Val_uw & Y3)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[11] = ((relay_control_st.Relay_status_st.Val_uw & Y4)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[12] = ((relay_control_st.Relay_status_st.Val_uw & Y5)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[13] = ((relay_control_st.Relay_status_st.Val_uw & Y6)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[14] = ((relay_control_st.Relay_status_st.Val_uw & Y7)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[15] = ((relay_control_st.Relay_status_st.Val_uw & Y8)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[16] = ((relay_control_st.Relay_status_st.Val_uw & Y9)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[17] = ((relay_control_st.Relay_status_st.Val_uw & Y10)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[18] = ((relay_control_st.Relay_status_st.Val_uw & Y11)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[19] = ((relay_control_st.Relay_status_st.Val_uw & Y12)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[20] = ((relay_control_st.Relay_status_st.Val_uw & Y13)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[21] = ((relay_control_st.Relay_status_st.Val_uw & Y14)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[22] = ((relay_control_st.Relay_status_st.Val_uw & Y15)!= 0)?'1':'0';
+	serial_com_sending_context_st.data_ub[23] = ((relay_control_st.Relay_status_st.Val_uw & Y16)!= 0)?'1':'0';
 	serial_com_sending_context_st.data_ub[24] = '\r';
 	serial_com_sending_context_st.data_ub[25] = '\n';
 	serial_com_sending_context_st.data_ub[26] = 'o';
