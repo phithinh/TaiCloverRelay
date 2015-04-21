@@ -31,6 +31,7 @@ typedef struct{
 		}Relay_st;
 	}Requested_relay_st;
 	unsigned char requested_flag_b;
+	unsigned char supress_requested_flag_b;
 }p_serial_com_tdf;
 
 

@@ -75,6 +75,9 @@ void serial_com_main(void){
 			}else if (serial_com_receiving_context_st.data_ub[0] == 's'){
 				l_serial_com_send_status_flag_b = 1;
 				serial_com_sm_idle_sending_v();
+			}else if (serial_com_receiving_context_st.data_ub[0] == 'c'){
+				l_serial_com_send_status_flag_b = 1;
+				serial_com_sm_idle_sending_v();
 			}
 			serial_com_receiving_context_st.done_flag_ub = 0;
 		}

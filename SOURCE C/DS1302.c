@@ -339,6 +339,7 @@ unsigned int l_relay_requested_sta_uw = 0;
 unsigned char l_relay_manual_in_day_flag_ub = 0;
 BYTE PreDay;
 #define g_com_requested_by_sms_flag_ub serial_com_st.requested_flag_b
+#define g_com_supress_requested_by_sms_flag_ub serial_com_st.supress_requested_flag_b
 #define g_com_requested_sta_uw	serial_com_st.Requested_relay_st.Val_uw
 #define l_relay_sta_uw relay_control_st.Relay_status_st.Val_uw
 #define l_relay_OT1_b relay_control_st.Overtime_status_st.Overtime_1
@@ -350,7 +351,10 @@ void Relay_sms_handler(void){
 		l_relay_manual_in_day_flag_ub = 1;
 		l_relay_requested_sta_uw = g_com_requested_sta_uw;
 	}
-
+	if (g_com_supress_requested_by_sms_flag_ub){
+		g_com_supress_requested_by_sms_flag_ub = 0;
+		l_relay_manual_in_day_flag_ub = 0;
+	}
 	/*
 	 * the sms request is available in 1 day only
 	 * */

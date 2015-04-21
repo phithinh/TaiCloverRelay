@@ -10,7 +10,7 @@
 
 _FOSC(CSW_FSCM_OFF & XT_PLL8);//XT_PLL8            //Fail-Safe Clock Monitor Off, HS OSC
 _FWDT(WDT_ON & WDTPSA_512 & WDTPSB_16);   //WatchDog On freq =125k/64/16
-_FBORPOR(MCLR_EN & PBOR_ON & BORV27 & RST_IOPIN);   //MCLR Enable, Power on Reset On, Brown-out Reset On = 2.7V.
+_FBORPOR(MCLR_EN & PBOR_ON & BORV_27 & RST_IOPIN);   //MCLR Enable, Power on Reset On, Brown-out Reset On = 2.7V.
 _FGS(CODE_PROT_OFF);               //Code Protection OFF
 
 
