@@ -12,5 +12,6 @@ void serial_com_send_ok_v(void);
 void serial_com_send_nok_v(void);
 void serial_com_set_relay_state_v(void);
 void serial_com_send_relay_state_v(void);
+void serial_com_suppress_relay_controlling_v(void);
 
 #endif /* SERIAL_COM_REACTION_H_ */

@@ -117,3 +117,7 @@ void serial_com_send_relay_state_v(void){
 	serial_com_sending_context_st.data_ub[43] = 0;
 	serial_com_sending_context_st.sent_length_ub = 43;
 }
+
+void serial_com_suppress_relay_controlling_v(void){
+	serial_com_st.supress_requested_flag_b = 1;
+}
